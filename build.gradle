@@ -8,7 +8,7 @@ buildscript {
     }
 }
 
-version "0.2.4"
+version "0.2.5-UBERALL"
 group "org.grails.plugins"
 
 apply plugin:"eclipse"
@@ -42,7 +42,7 @@ dependencies {
     provided "org.grails:grails-plugin-domain-class"
     testCompile "org.grails:grails-plugin-testing"
 
-    compile 'org.flywaydb:flyway-core:4.0.3'
+    compile 'org.flywaydb:flyway-core:5.1.4'
 }
 
 task wrapper(type: Wrapper) {
@@ -50,8 +50,10 @@ task wrapper(type: Wrapper) {
 }
 
 grailsPublish {
-    repo = 'plugins'
-    githubSlug = 'saw303/grails-flyway'
+    user = System.getenv("BINTRAY_USER")
+    key = System.getenv("BINTRAY_KEY")
+    userOrg = 'uberall'
+    githubSlug = 'uberall/grails-flyway'
     license {
         name = 'Apache-2.0'
     }
